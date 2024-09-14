@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 
-from . import db
+from . import db, auth
 
 def create_app(test_config=None):
     # create and configure app
@@ -32,4 +32,6 @@ def create_app(test_config=None):
     def hello():
         return('hello world')
     
+    app.register_blueprint(auth.bp)
+
     return app
